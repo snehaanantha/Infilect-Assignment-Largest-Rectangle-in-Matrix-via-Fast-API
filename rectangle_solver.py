@@ -10,23 +10,23 @@ def largest_rectangle(matrix: List[List[int]]) -> tuple:
 
     for row in range(rows):
         for col in range(cols):
-            if matrix[row][col] != -9:  # Ignore visited cells
+            if matrix[row][col] != -9:  
                 number = matrix[row][col]
                 area = 0
 
-                # Calculate the area of the rectangle with the current number
+                
                 stack = [(row, col)]
                 while stack:
                     r, c = stack.pop()
                     if 0 <= r < rows and 0 <= c < cols and matrix[r][c] == number:
                         area += matrix[r][c]
-                        matrix[r][c] = -9  # Mark the cell as visited
-                        stack.append((r + 1, c))  # Move down
-                        stack.append((r, c + 1))  # Move right
-                        stack.append((r - 1, c))  # Move up
-                        stack.append((r, c - 1))  # Move left
+                        matrix[r][c] = -9  
+                        stack.append((r + 1, c))  
+                        stack.append((r, c + 1))  
+                        stack.append((r - 1, c))  
+                        stack.append((r, c - 1))  
 
-                # Update the maximum area and result_number
+                
                 if area > max_area:
                     max_area = area
                     result_number = number
